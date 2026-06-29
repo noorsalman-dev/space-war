@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://tjc58kxhhr2u"]
+
+[ext_resource type="Script" uid="uid://vrwkmfcr8m1f" path="res://script/greenbrusher.gd" id="1_2c1w2"]
+[ext_resource type="Texture2D" uid="uid://baefiojklds04" path="res://SpaceRage/Enemies/mine_1_01.png" id="1_jk6i2"]
+[ext_resource type="Texture2D" uid="uid://ubyck0q0e1v8" path="res://SpaceRage/Enemies/mine_1_02.png" id="2_2c1w2"]
+[ext_resource type="Texture2D" uid="uid://b3rtf00026x5w" path="res://SpaceRage/Enemies/mine_1_03.png" id="3_2pcd8"]
+[ext_resource type="Texture2D" uid="uid://bugvettfi1wbw" path="res://SpaceRage/Enemies/mine_1_04.png" id="4_jtg5f"]
+[ext_resource type="Texture2D" uid="uid://65volv2001dv" path="res://SpaceRage/Enemies/mine_1_05.png" id="5_lgr47"]
+[ext_resource type="Texture2D" uid="uid://k7xaql6qvp20" path="res://SpaceRage/Enemies/mine_1_06.png" id="6_74el6"]
+[ext_resource type="Texture2D" uid="uid://dpnxal75ih4cm" path="res://SpaceRage/Enemies/mine_1_07.png" id="7_f18sw"]
+[ext_resource type="Texture2D" uid="uid://bqqrrwu6d3ukk" path="res://SpaceRage/Enemies/mine_1_08.png" id="8_4hoc6"]
+[ext_resource type="Texture2D" uid="uid://b3tftn6xjyj1a" path="res://SpaceRage/Enemies/mine_1_09.png" id="9_0qww6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1msrw"]
+atlas = ExtResource("1_jk6i2")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ywnl"]
+atlas = ExtResource("2_2c1w2")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7hdx"]
+atlas = ExtResource("3_2pcd8")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djtgr"]
+atlas = ExtResource("4_jtg5f")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d80ah"]
+atlas = ExtResource("5_lgr47")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od1sx"]
+atlas = ExtResource("6_74el6")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqop4"]
+atlas = ExtResource("7_f18sw")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry210"]
+atlas = ExtResource("8_4hoc6")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfuf6"]
+atlas = ExtResource("9_0qww6")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dn6fx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1msrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ywnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7hdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djtgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d80ah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od1sx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqop4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry210")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfuf6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 70.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2c1w2"]
+radius = 13.719816
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2pcd8"]
+radius = 14.941037
+
+[node name="greenbrusher" type="CharacterBody2D" unique_id=2041508256]
+scale = Vector2(3.135, 3.135)
+script = ExtResource("1_2c1w2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=294489378]
+sprite_frames = SubResource("SpriteFrames_dn6fx")
+autoplay = "default"
+frame_progress = 0.76729447
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=348315060]
+shape = SubResource("CircleShape2D_2c1w2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=381119723]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=434888275]
+shape = SubResource("CircleShape2D_2pcd8")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]

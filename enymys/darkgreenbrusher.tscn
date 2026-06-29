@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://cgbliq0he3lhn"]
+
+[ext_resource type="Script" uid="uid://vrwkmfcr8m1f" path="res://script/greenbrusher.gd" id="1_k2p43"]
+[ext_resource type="Texture2D" uid="uid://c8ee070mpxcqx" path="res://SpaceRage/Enemies/mine_11_01.png" id="2_faegd"]
+[ext_resource type="Texture2D" uid="uid://dpdu1iswvjplw" path="res://SpaceRage/Enemies/mine_11_02.png" id="3_1hak0"]
+[ext_resource type="Texture2D" uid="uid://coiha81icrgde" path="res://SpaceRage/Enemies/mine_11_03.png" id="4_sg1d5"]
+[ext_resource type="Texture2D" uid="uid://mjuxbscxggr" path="res://SpaceRage/Enemies/mine_11_04.png" id="5_mxsul"]
+[ext_resource type="Texture2D" uid="uid://ddcb7q11nuk2g" path="res://SpaceRage/Enemies/mine_11_05.png" id="6_cvgx7"]
+[ext_resource type="Texture2D" uid="uid://dx5w2wd6067sw" path="res://SpaceRage/Enemies/mine_11_06.png" id="7_34eno"]
+[ext_resource type="Texture2D" uid="uid://b28pno10ahy50" path="res://SpaceRage/Enemies/mine_11_07.png" id="8_bb60t"]
+[ext_resource type="Texture2D" uid="uid://b5h4rtidu2x26" path="res://SpaceRage/Enemies/mine_11_08.png" id="9_8bif7"]
+[ext_resource type="Texture2D" uid="uid://bib07enwhc1v3" path="res://SpaceRage/Enemies/mine_11_09.png" id="10_18brv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkvno"]
+atlas = ExtResource("2_faegd")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym8k3"]
+atlas = ExtResource("3_1hak0")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjf8f"]
+atlas = ExtResource("4_sg1d5")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04ua4"]
+atlas = ExtResource("5_mxsul")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6r45"]
+atlas = ExtResource("6_cvgx7")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iqjq"]
+atlas = ExtResource("7_34eno")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26mrg"]
+atlas = ExtResource("8_bb60t")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh1i1"]
+atlas = ExtResource("9_8bif7")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ituc"]
+atlas = ExtResource("10_18brv")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3vghw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkvno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym8k3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjf8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04ua4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6r45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iqjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26mrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wh1i1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ituc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 70.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ewdl"]
+radius = 16.27107
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2pcd8"]
+radius = 16.104506
+
+[node name="darkgreenbrusher" type="CharacterBody2D" unique_id=2041508256]
+scale = Vector2(3.135, 3.135)
+script = ExtResource("1_k2p43")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=294489378]
+sprite_frames = SubResource("SpriteFrames_3vghw")
+autoplay = "default"
+frame_progress = 0.31681165
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=348315060]
+shape = SubResource("CircleShape2D_4ewdl")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=381119723]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=434888275]
+shape = SubResource("CircleShape2D_2pcd8")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

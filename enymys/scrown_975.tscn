@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dbc0og8cu3vcr"]
+
+[ext_resource type="Script" uid="uid://vrwkmfcr8m1f" path="res://script/greenbrusher.gd" id="1_upgd4"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fcet5"]
+load_path = "res://.godot/imported/Screenshot_from_2026-06-13_06-47-45-removebg-preview.png-8132dfd65d046c37fa5deb724ddebff1.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bkbx4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r6u3w"]
+radius = 39.95271
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jkf1h"]
+radius = 43.00073
+
+[node name="scrown975" type="CharacterBody2D" unique_id=2041508256]
+scale = Vector2(3.135, 3.135)
+script = ExtResource("1_upgd4")
+
+[node name="ScreenshotFrom20260613064751RemovebgPreview" type="Sprite2D" parent="." unique_id=1578979075]
+position = Vector2(-3.8277512, -0.31897926)
+texture = SubResource("CompressedTexture2D_fcet5")
+region_enabled = true
+region_rect = Rect2(521.5, 242.5, 185, 109)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=294489378]
+sprite_frames = SubResource("SpriteFrames_bkbx4")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=348315060]
+position = Vector2(-4.784689, 1.275917)
+shape = SubResource("CircleShape2D_r6u3w")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=381119723]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=434888275]
+position = Vector2(-7.336523, 0)
+shape = SubResource("CircleShape2D_jkf1h")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]

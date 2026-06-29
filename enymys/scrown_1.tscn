@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dxehiq72rjji4"]
+
+[ext_resource type="Script" uid="uid://vrwkmfcr8m1f" path="res://script/greenbrusher.gd" id="1_ued88"]
+[ext_resource type="Texture2D" uid="uid://c2cgmyo605duc" path="res://SpaceRage/Screenshot_from_2026-06-13_06-47-45-removebg-preview.png" id="2_u5vpn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bkbx4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3lmbm"]
+radius = 27.180702
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xh2gu"]
+radius = 13.720831
+height = 79.09425
+
+[node name="scrown1" type="CharacterBody2D" unique_id=2041508256]
+scale = Vector2(3.135, 3.135)
+script = ExtResource("1_ued88")
+
+[node name="ScreenshotFrom20260613064751RemovebgPreview" type="Sprite2D" parent="." unique_id=1578979075]
+position = Vector2(-3.8277512, -0.31897926)
+texture = ExtResource("2_u5vpn")
+region_enabled = true
+region_rect = Rect2(0, 240.5, 172.5, 113.5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=294489378]
+sprite_frames = SubResource("SpriteFrames_bkbx4")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=348315060]
+position = Vector2(-2.2328548, -11.164274)
+shape = SubResource("CircleShape2D_3lmbm")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=381119723]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=434888275]
+position = Vector2(-3.8277512, -7.0175433)
+rotation = -1.574574
+shape = SubResource("CapsuleShape2D_xh2gu")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]

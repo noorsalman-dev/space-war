@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://v7rq4rlw7idj"]
+
+[ext_resource type="Script" uid="uid://vrwkmfcr8m1f" path="res://script/greenbrusher.gd" id="1_n00oj"]
+[ext_resource type="Texture2D" uid="uid://b5qkcxo86ec6v" path="res://SpaceRage/Enemies/mine_22_01.png" id="2_jb6j5"]
+[ext_resource type="Texture2D" uid="uid://dphfreydadfej" path="res://SpaceRage/Enemies/mine_22_02.png" id="3_fymu5"]
+[ext_resource type="Texture2D" uid="uid://dsaqe7uems5my" path="res://SpaceRage/Enemies/mine_22_03.png" id="4_hun66"]
+[ext_resource type="Texture2D" uid="uid://cf6x17b7fd7fd" path="res://SpaceRage/Enemies/mine_22_04.png" id="5_7nuxa"]
+
+[sub_resource type="Animation" id="Animation_i2kgl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ugmt0"]
+resource_name = "attack"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2.0333333, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(140.03189, 206.37958), Vector2(240.19139, 1.2759094), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_65u72"]
+_data = {
+&"RESET": SubResource("Animation_i2kgl"),
+&"attack": SubResource("Animation_ugmt0")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2pcd8"]
+radius = 16.104506
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0v7w"]
+atlas = ExtResource("2_jb6j5")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1xfy"]
+atlas = ExtResource("3_fymu5")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oj6f"]
+atlas = ExtResource("4_hun66")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_laqid"]
+atlas = ExtResource("5_7nuxa")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l57hu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0v7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1xfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oj6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_laqid")
+}],
+"loop": true,
+"name": &"default",
+"speed": 70.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ewdl"]
+radius = 16.27107
+
+[node name="redteeth" type="CharacterBody2D" unique_id=2041508256]
+scale = Vector2(3.135, 3.135)
+script = ExtResource("1_n00oj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=47506515]
+libraries/ = SubResource("AnimationLibrary_65u72")
+autoplay = &"attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=434888275]
+shape = SubResource("CircleShape2D_2pcd8")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=816797629]
+
+[node name="Node" type="Node" parent="Node2D" unique_id=449961098]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=294489378]
+sprite_frames = SubResource("SpriteFrames_l57hu")
+autoplay = "default"
+frame = 2
+frame_progress = 0.41536224
+
+[node name="Area2D" type="Area2D" parent="Node2D" unique_id=381119723]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D" unique_id=348315060]
+shape = SubResource("CircleShape2D_4ewdl")
+
+[connection signal="area_entered" from="Node2D/Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dyrlyfe612dx4"]
+
+[ext_resource type="Texture2D" uid="uid://bhb4b7hr0wb8s" path="res://SpaceRage/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Weapon Effects - Projectiles/PNGs/Nairan - Rocket.png" id="1_kelms"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ir6yf"]
+radius = 5.668016
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lp6i"]
+atlas = ExtResource("1_kelms")
+region = Rect2(0, 0, 9, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn462"]
+atlas = ExtResource("1_kelms")
+region = Rect2(9, 0, 9, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxp8u"]
+atlas = ExtResource("1_kelms")
+region = Rect2(18, 0, 9, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk71x"]
+atlas = ExtResource("1_kelms")
+region = Rect2(27, 0, 9, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8hi0v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lp6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn462")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxp8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk71x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="smallrocket" type="Area2D" unique_id=1061758751]
+scale = Vector2(1.235, 1.235)
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1054713146]
+shape = SubResource("CircleShape2D_ir6yf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1448189179]
+sprite_frames = SubResource("SpriteFrames_8hi0v")
+autoplay = "default"

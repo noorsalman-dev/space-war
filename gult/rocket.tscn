@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://d3b4u7v0eknis"]
+
+[ext_resource type="Texture2D" uid="uid://cxbhatrjvb6tt" path="res://SpaceRage/Foozle_2DS0012_Void_EnemyFleet_1/Kla'ed/Projectiles/PNGs/Kla'ed - Torpedo.png" id="1_j80nh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix8q1"]
+size = Vector2(4.8582993, 17.813766)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6ew5"]
+atlas = ExtResource("1_j80nh")
+region = Rect2(0, 0, 11, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tabvs"]
+atlas = ExtResource("1_j80nh")
+region = Rect2(11, 0, 11, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhvlk"]
+atlas = ExtResource("1_j80nh")
+region = Rect2(22, 0, 11, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7seeh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6ew5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tabvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhvlk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="rocket" type="Area2D" unique_id=1061758751]
+scale = Vector2(1.235, 1.235)
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1054713146]
+position = Vector2(4.826287e-08, -5.668016)
+shape = SubResource("RectangleShape2D_ix8q1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1448189179]
+sprite_frames = SubResource("SpriteFrames_7seeh")
+autoplay = "default"

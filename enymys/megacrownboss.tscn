@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://b5xufvngba5t1"]
+
+[ext_resource type="Script" uid="uid://bwu3wfqht5jv" path="res://script/megacrownboss.gd" id="1_tq2kp"]
+[ext_resource type="Texture2D" uid="uid://bpn7aamg8h1lv" path="res://SpaceRage/Adobe Express - file.png" id="2_mbuiy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ewdl"]
+radius = 103.07029
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2pcd8"]
+radius = 364.7183
+
+[sub_resource type="Theme" id="Theme_yrrox"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lngla"]
+bg_color = Color(0.8012637, 1.540184e-06, 6.738305e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ar6x"]
+bg_color = Color(0.34160772, 0.7739373, 0.13302559, 1)
+
+[sub_resource type="Animation" id="Animation_iv2ke"]
+resource_name = "boss"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_btmg6"]
+_data = {
+&"boss": SubResource("Animation_iv2ke")
+}
+
+[node name="megacrownboss" type="CharacterBody2D" unique_id=2041508256]
+scale = Vector2(3.135, 3.135)
+script = ExtResource("1_tq2kp")
+metadata/_edit_horizontal_guides_ = [-514.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=348315060]
+shape = SubResource("CircleShape2D_4ewdl")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=381119723]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=434888275]
+position = Vector2(27.113237, -162.36044)
+shape = SubResource("CircleShape2D_2pcd8")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=113279086]
+offset_left = -165.86922
+offset_top = 205.10367
+offset_right = 180.22331
+offset_bottom = 232.53589
+theme = SubResource("Theme_yrrox")
+theme_override_styles/background = SubResource("StyleBoxFlat_lngla")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3ar6x")
+max_value = 200.0
+value = 200.0
+show_percentage = false
+
+[node name="AdobeExpressFile" type="Sprite2D" parent="." unique_id=2075431737]
+position = Vector2(25.19934, -166.18817)
+texture = ExtResource("2_mbuiy")
+region_enabled = true
+region_rect = Rect2(697.5, 0, 756.5, 726.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1320216397]
+libraries/ = SubResource("AnimationLibrary_btmg6")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://x2l25q86y7fn"]
+
+[ext_resource type="Texture2D" uid="uid://80vm8ri75p7i" path="res://SpaceRage/FX/proton_01.png" id="1_gkn18"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ir6yf"]
+radius = 5.668016
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_un4p8"]
+atlas = ExtResource("1_gkn18")
+region = Rect2(0, 0, 13, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g0pkc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_un4p8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="proton" type="Area2D" unique_id=1061758751]
+scale = Vector2(1.235, 1.235)
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1054713146]
+shape = SubResource("CircleShape2D_ir6yf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1448189179]
+sprite_frames = SubResource("SpriteFrames_g0pkc")

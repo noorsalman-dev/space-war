@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://d2ifg2xe0io46"]
+
+[ext_resource type="Texture2D" uid="uid://gs4nn6iph7lq" path="res://SpaceRage/Gemini_Generated_Image_qnbh1hqnbh1hqnbh.png" id="1_vybci"]
+
+[node name="bosswin" type="Node2D" unique_id=233571548]
+
+[node name="GeminiGeneratedImageQnbh1Hqnbh1Hqnbh" type="Sprite2D" parent="." unique_id=1394644819]
+position = Vector2(-3, -0.9999924)
+scale = Vector2(0.790522, 0.881669)
+texture = ExtResource("1_vybci")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1188086738]

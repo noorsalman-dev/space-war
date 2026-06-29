@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b1woptenw4hj2"]
+
+[ext_resource type="Texture2D" uid="uid://pnl7mgkmkem" path="res://SpaceRage/FX/vulcan_2.png" id="1_kuaie"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rbk63"]
+radius = 2.4291496
+height = 16.194332
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_023jl"]
+atlas = ExtResource("1_kuaie")
+region = Rect2(0, 0, 9, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h8rbl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_023jl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FIRE" type="Area2D" unique_id=1061758751]
+scale = Vector2(1.235, 1.235)
+collision_layer = 3
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1054713146]
+shape = SubResource("CapsuleShape2D_rbk63")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1448189179]
+position = Vector2(0, -2.4291496)
+sprite_frames = SubResource("SpriteFrames_h8rbl")
+frame_progress = 0.9921535
