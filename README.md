@@ -1,10 +1,14 @@
 # space war
 I made it like the lokal space shooter game I got the assets from itchio it's a good game talking about some space airplane that fight aliens airplane that want to destroy earth I made that game for [stack](https://stack.hackclub.com/) it's one of hackclub ysws chalenges that talks about that you make a hardware or softwares and they get you a grant to buy lego and i hope that they aprove it it's so fantastick 
 
+* [the last level photo ](https://cdn.hackclub.com/019f129d-c803-7e47-aa2e-454696a96cdc/Screenshot%20from%202026-06-29%2012-00-12.png)
+
+---
+
 ## video for journual hours
 
-*hour one 
-*hour two
+*[hour one ](https://cdn.hackclub.com/019f1941-3b99-7715-8328-338932ae521d/Screencast%20from%202026-06-29%2017-56-39.webm)
+*[hour two](https://drive.proton.me/urls/FP0JT6Z4TW#4eruGdHEcUio)
 
 ---
 
