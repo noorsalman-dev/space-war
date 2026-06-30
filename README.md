@@ -7,8 +7,8 @@ I made it like the lokal space shooter game I got the assets from itchio it's a 
 
 ## video for journual hours
 
-*[hour one ](https://cdn.hackclub.com/019f1941-3b99-7715-8328-338932ae521d/Screencast%20from%202026-06-29%2017-56-39.webm)
-*[hour two](https://drive.proton.me/urls/FP0JT6Z4TW#4eruGdHEcUio)
+* [hour one ](https://cdn.hackclub.com/019f1941-3b99-7715-8328-338932ae521d/Screencast%20from%202026-06-29%2017-56-39.webm)
+* [hour two](https://drive.proton.me/urls/FP0JT6Z4TW#4eruGdHEcUio)
 
 ---
 
